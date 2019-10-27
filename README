@@ -1,0 +1,33 @@
+The GPG-based implementaon for points-to analysis is implemented in GCC 4.7.2. It is tested on Ubuntu 14.04. This implementation is provided as a dynamic plugin for gcc 4.7.2.
+
+$cd gcc472
+$sh sourceit.sh
+
+
+The setup for gcc 4.7.2 is provided with the implementation in order to avoid to build gcc from the source code. A script sourceit.sh should be run to set the PATH for running the dynamic plugin.
+
+The implementation can be run on a testcase with a simple command:
+
+$cd gpg-imp
+$make run
+
+Please refer to READ_DATA for interpreting the GPG data.
+
+Multiple variants of points-to analysis is implemented. They can be enabled by setting appropriate flags (present in gpg-imp/GPU.h)
+
+1. Flow- and context-insensitive (FICI) analysis: Set FI_ANALYSIS and CI_ANALYSIS to 1. 
+2. Flow-sensitive and context-insensitive (FICS) analysis: Set FI_ANALYSIS to 0 and CI_ANALYSIS to 1. 
+2. Flow- and context-sensitive (FSCS) analysis (default option): Set FI_ANALYSIS and CI_ANALYSIS to 0. 
+
+Additional flags such as PRINT_DATA, DATA_MEAS and TIME_MEAS are used to print GPGs at every program point (for every GPB constructed), data and time measurements. 
+
+The flag BLOCKING is set to 1 (by default) for GPG-based points-to analysis for points-to analysis. 
+
+The output of the analysis is dumped in the file result.233i.gpg.
+
+printGPG() for a procedure prints the GPGs the procedure. It specifies the Entry and End GPB. It summarizes the GPG with number of GPBs, number of unresolved recursive and indirect calls, number of GPUs, number of control flow edges.
+It then prints every GPB, with the number of predecessors/successors (lists all predecessors/successors) and the GPUs contained in the GPBs. It finally prints the Flow-insensitive GPUs which includes the SSA variables, Array variables.
+
+Note that SSA variables are resolved while constructing the Initial GPG by using def-use chains. Hence, no GPBs will have GPUs involving SSA variables.
+
+PS: Options like HEURISTICS and PAR_FI are no longer used. 
