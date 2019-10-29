@@ -31,11 +31,4 @@ The implementation supports multiple variants of points-to analysis. They can be
 
 Additional flags such as `PRINT_DATA`, `DATA_MEAS` and `TIME_MEAS` are used to print GPGs at every program point (for every GPB constructed), data measurements, and time measurements respectively
 
-The flag `BLOCKING` is set to 1 (by default) for GPG-based points-to analysis for points-to analysis.
-
-Function `printGPG()` for a procedure prints the GPGs of the procedure. It lists the Entry and End GPBs of the GPG and summarizes the GPG with number of GPBs, number of unresolved recursive and indirect calls, number of GPUs and number of control flow edges.
-It then prints every GPB, with the number of predecessors/successors (listing all predecessors/successors GPBs) and the GPUs contained in the GPBs. It finally prints the Flow-insensitive GPUs which includes the GPUs involving SSA variables and Array variables.
-
-Note that SSA variables are resolved while constructing the Initial GPG by using def-use chains (i.e., SSA edges). Hence, no GPBs will have GPUs involving SSA variables.
-
-PS: Options like `HEURISTICS` and `PAR_FI` are no longer used.
+The flag `BLOCKING` is set to 1 (by default) for GPG-based points-to analysis for points-to analysis. Options `HEURISTICS` and `PAR_FI` are no longer used.
