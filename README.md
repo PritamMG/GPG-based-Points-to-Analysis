@@ -16,7 +16,7 @@ We have provided an installation of gcc 4.7.2 and there is no need to build it f
     $make run                           # Builds the plugin and runs it on $(TEST) in the Makefile.
     
 
-This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file HOW_TO_READ_DATA for interpreting the data dumped by the implementation.
+This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file `HOW_TO_READ_GPG_DUMP` for interpreting the data dumped by the implementation.
 
 The above steps have been tested on Ubuntu Ubuntu 14.04, Ubuntu 16.04, and Ubuntu 18.04, all running on x86_64.
 
