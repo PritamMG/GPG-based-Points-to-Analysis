@@ -2,8 +2,11 @@ Points-to Analysis using Generalized Points-to Graphs
 ======================================================
 This repository provides an implementation of points-to analysis using the Generalized Points-to Graphs (GPG). A GPG is a graph with GPBs (Generalized Points-to Blocks) as nodes which in turn are sets of GPUs (Generalized Points-to Updates) that represent statements accessing pointers.
 
-The GPG-based points-to analysis is implemented in GCC 4.7.2. It is tested on Ubuntu 14.04. This implementation is provided as a dynamic plugin for gcc 4.7.2. Please contact Pritam Gharat (pritam01gharat@gmail.com) for any questions.
+The GPG-based points-to analysis is implemented in GCC 4.7.2. This implementation is provided as a dynamic plugin for gcc 4.7.2. Please contact Pritam Gharat (pritam01gharat@gmail.com) for any questions.
 
+
+Running the GPG-based Points-to Analysis
+----------------------------------------
 We have provided an installation of gcc 4.7.2 and there is no need to build it from the source code. This has been done because building gcc-4.7.2 using contemporary version of gcc runs into many problems. Please [download file gcc472.tgz file](https://tinyurl.com/y3l3aeek) and copy it in the current directory. The complete set of steps needed to run the implementation are
 
     $cd GPG-based-Points-to-Analysis    # The top level directory.
@@ -15,6 +18,11 @@ We have provided an installation of gcc 4.7.2 and there is no need to build it f
 
 This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file HOW_TO_READ_DATA for interpreting the data dumped by the implementation.
 
+The above steps have been tested on Ubuntu Ubuntu 14.04, Ubuntu 16.04, and Ubuntu 18.04, all running on x86_64.
+
+Some Options Available for Running the Implementation
+------------------------------------------------------
+
 The impelmentation supports multiple variants of points-to analysis. They can be enabled by setting appropriate flags (present in the file `gpg-imp/GPU.h`)
 
 1. For flow- and context-insensitive (FICI) analysis, set `FI_ANALYSIS` and `CI_ANALYSIS` to 1.
@@ -24,7 +32,6 @@ The impelmentation supports multiple variants of points-to analysis. They can be
 Additional flags such as `PRINT_DATA`, `DATA_MEAS` and `TIME_MEAS` are used to print GPGs at every program point (for every GPB constructed), data measurements, and time measurements respectively
 
 The flag `BLOCKING` is set to 1 (by default) for GPG-based points-to analysis for points-to analysis.
-
 
 Function `printGPG()` for a procedure prints the GPGs of the procedure. It lists the Entry and End GPBs of the GPG and summarizes the GPG with number of GPBs, number of unresolved recursive and indirect calls, number of GPUs and number of control flow edges.
 It then prints every GPB, with the number of predecessors/successors (listing all predecessors/successors GPBs) and the GPUs contained in the GPBs. It finally prints the Flow-insensitive GPUs which includes the GPUs involving SSA variables and Array variables.
