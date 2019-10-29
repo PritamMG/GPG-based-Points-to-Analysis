@@ -4,7 +4,7 @@ This repository provides an implementation of points-to analysis using the Gener
 
 The GPG-based points-to analysis is implemented in GCC 4.7.2. It is tested on Ubuntu 14.04. This implementation is provided as a dynamic plugin for gcc 4.7.2. Please contact Pritam Gharat (pritam01gharat@gmail.com) for any questions.
 
-We have provided an installation of gcc 4.7.2 and there is no need to build it from the source code. This has been done because building gcc-4.7.2 using contemporary version of gcc runs into many problems. Please [download the file gcc472.tgz](https://tinyurl.com/y3l3aeek) and copy it in the current directory. The complete set of steps needed to run the implementation are
+We have provided an installation of gcc 4.7.2 and there is no need to build it from the source code. This has been done because building gcc-4.7.2 using contemporary version of gcc runs into many problems. Please [download file gcc472.tgz file](https://tinyurl.com/y3l3aeek) and copy it in the current directory. The complete set of steps needed to run the implementation are
 
     $cd GPG-based-Points-to-Analysis    # The top level directory.
     $tar xvfz gcc472.tgz                # This creates the subdirectory gcc472 containing the gcc installation.
