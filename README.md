@@ -23,7 +23,7 @@ The above steps have been tested on Ubuntu Ubuntu 14.04, Ubuntu 16.04, and Ubunt
 Some Options Available for Running the Implementation
 ------------------------------------------------------
 
-The impelmentation supports multiple variants of points-to analysis. They can be enabled by setting appropriate flags (present in the file `gpg-imp/GPU.h`)
+The implementation supports multiple variants of points-to analysis. They can be enabled by setting appropriate flags (present in the file `gpg-imp/GPU.h`)
 
 1. For flow- and context-insensitive (FICI) analysis, set `FI_ANALYSIS` and `CI_ANALYSIS` to 1.
 2. For flow-sensitive and context-insensitive (FICS) analysis, set `FI_ANALYSIS` to 0 and `CI_ANALYSIS` to 1.
