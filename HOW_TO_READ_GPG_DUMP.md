@@ -1,5 +1,5 @@
-More Details About the Implementation
-=====================================
+How to Read GPG Dump in the Output File `result.233i.gpg`
+---------------------------------------------------------
 
 Function `printGPG()` for the object representing a procedure prints the GPG the procedure. It specifies the Entry and End GPB. It summarizes the GPG with number of GPBs, number of unresolved recursive and indirect calls, number of GPUs, number of control flow edges. It then prints every GPB, with the number of predecessors/successors (lists all predecessors/successors) and the GPUs contained in the GPBs. It finally prints the Flow-insensitive GPUs which includes the SSA variables, Array variables.
 
