@@ -12,6 +12,7 @@ We have provided an installation of gcc 4.7.2 and there is no need to build it f
     $source set-lib-paths.sh            # `source` command instantiates the shell variables in the current shell.
     $make run                           # Builds the plugin and runs it on $(TEST) in the Makefile.
     
+
 This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file HOW_TO_READ_DATA for interpreting the data dumped by the implementation.
 
 The impelmentation supports multiple variants of points-to analysis. They can be enabled by setting appropriate flags (present in the file `gpg-imp/GPU.h`)
