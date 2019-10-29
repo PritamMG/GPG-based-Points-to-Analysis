@@ -5,30 +5,30 @@ BASE_DIR=`pwd`/../gcc472
 
 INSTALL = $(BASE_DIR)/install
 CC = $(INSTALL)/bin/g++
-NEW_PATH = $(BASE_DIR)/gcc-4.7.2/gcc
 
-#----- MAKE CHANGES TO OBJS : Add the name of your test file with extension .o (say test as test.o) --------#
+
+#----- MAKE CHANGES TO TEST : Add the name of your test file with extension .o (say test as test.o) --------#
 #------------------------------- Multiple dependent files maybe also be added ------------------------------#
-OBJS = coalesce.o
+TEST = coalesce.o
 
-#OBJS = types-struct.o
-#OBJS = blocking2.o
-#OBJS = fp.o
-#OBJS = struct-heap.o
-#OBJS = test8.o
-#OBJS = test34.o
-#OBJS = loop.o
-#OBJS = rcfg.o
-#OBJS = recur.o
-#OBJS = scc.o
-#OBJS = coalescing.o
-#OBJS = ptr-arith.o
-#OBJS = fp.o
+#TEST = types-struct.o
+#TEST = blocking2.o
+#TEST = fp.o
+#TEST = struct-heap.o
+#TEST = test8.o
+#TEST = test34.o
+#TEST = loop.o
+#TEST = rcfg.o
+#TEST = recur.o
+#TEST = scc.o
+#TEST = coalescing.o
+#TEST = ptr-arith.o
+#TEST = fp.o
 
 GCCPLUGINS_DIR:= $(shell $(CC) -print-file-name=plugin)
-INCLUDE= -I$(GCCPLUGINS_DIR)/include #-I$(NEW_PATH)
+INCLUDE= -I$(GCCPLUGINS_DIR)/include 
 
-FLAGS= -fPIC -g -O0 -fipa-pta -flto -flto-partition=none -DPROFILE
+FLAGS= -fPIC -g -O0 -fipa-pta -flto -flto-partition=none -DPROFILE 
 
 Profile.o: Profile.cpp Profile.h
 	$(CC) $(FLAGS) $(INCLUDE) -c Profile.cpp
@@ -84,8 +84,10 @@ pointsto.o: pointsto.cc
 plugin.so: pointsto.o parser.o basic_block.o con.o cgraph_node.o interval.o IndirectionList.o GPU.o GPB.o GPG.o CoalescingAbstraction.o Profile.o fp_prototype.o
 	$(CC) $(INCLUDE) $(FLAGS) -shared $^ -o $@
 
-run:  $(OBJS) plugin.so
-	$(CC) -o result -DPROFILE -fipa-pta -g -flto -flto-partition=none -fplugin=./plugin.so $(OBJS) -O3 -fdump-ipa-all
+run:  $(TEST) plugin.so
+	$(CC) -o result -DPROFILE -fipa-pta -g -flto -flto-partition=none -fplugin=./plugin.so $(TEST) -O3 -fdump-ipa-all
+
+	
 
 clean:
 	\rm -f plugin.so *~ *.o a.out result* *.cpp.* *.dot
