@@ -4,19 +4,14 @@ This repository provides an implementation of points-to analysis using the Gener
 
 The GPG-based points-to analysis is implemented in GCC 4.7.2. It is tested on Ubuntu 14.04. This implementation is provided as a dynamic plugin for gcc 4.7.2.
 
-We have provided an installation of gcc 4.7.2 and there is no need to build it from the source code. This has been done because building gcc-4.7.2 using contemporary version of gcc runs into many problems. A script sourceit.sh should be run to set the PATH for running the dynamic plugin using the installation of gcc-4.7.2.
+We have provided an installation of gcc 4.7.2 and there is no need to build it from the source code. This has been done because building gcc-4.7.2 using contemporary version of gcc runs into many problems. Please download this file and copy it in the current direcoty. The complete set of steps needed to run the implementation are
 
-
-    $cd gcc472
-    $sh sourceit.sh
-
-
-
-The source of time implementation is available in the directory `gpg-imp`. The `Makefile` present in the directory allows running the implementation on a testcase with the following commandas (where the name of the testcase has been provided in the `Makefile`. 
-
-    $cd gpg-imp
-    $make run
-
+    $cd GPG-based-Points-to-Analysis    # The top level directory.
+    $tar xvfz gcc472.tgz                # This creates the subdirectory gcc472 containing the gcc installation.
+    $cd gpg-imp                         # This contains the source of the GPG-based points-to analysis.
+    $source set-lib-paths.sh            # `source` command instantiates the shell variables in the current shell.
+    $make run                           # Builds the plugin and runs it on $(TEST) in the Makefile.
+    
 This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file HOW_TO_READ_DATA for interpreting the data dumped by the implementation.
 
 The impelmentation supports multiple variants of points-to analysis. They can be enabled by setting appropriate flags (present in the file `gpg-imp/GPU.h`)
