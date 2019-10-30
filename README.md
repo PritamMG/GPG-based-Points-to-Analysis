@@ -19,7 +19,7 @@ Please [download file gcc472.tgz file](https://tinyurl.com/y3l3aeek) and copy it
 
 This produces the output of the analysis in file`result.233i.gpg`. Please refer to the file [`HOW_TO_READ_GPG_DUMP`](HOW_TO_READ_GPG_DUMP.md) for interpreting the data dumped by the implementation.
 
-The above steps have been tested on Ubuntu Ubuntu 14.04, Ubuntu 16.04, and Ubuntu 18.04, all running on x86_64.
+The above steps have been tested on Ubuntu Ubuntu 14.04, Ubuntu 16.04, and Ubuntu 18.04, all running on x86_64. In some cases, the machines didn't have `g++-multilib` installed and hence the compilation did not work. Installing `g++-multilib` solved the problem.
 
 Some Options Available for Running the Implementation
 ------------------------------------------------------
