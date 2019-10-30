@@ -9,6 +9,7 @@ Running the GPG-based Points-to Analysis
 ----------------------------------------
 Please [download file gcc472.tgz file](https://tinyurl.com/y3l3aeek) and copy it in the top level directory `GPG-based-Points-to-Analysis`. The souce of the plugin for GPG-based points-to analysis is contained in a sub-directory called `gpg-imp`. This sub-directory is contained in the top level directory `GPG-based-Points-to-Analysis`. The complete sequence of steps needed to run the implementation for the first time is as follows. For subsequent runs, a suitable combination of last three steps would suffice.
 
+    $git clone https://github.com/PritamMG/GPG-based-Points-to-Analysis.git  # Get a copy of this repository
     $cd GPG-based-Points-to-Analysis    # The top level directory.
     $tar xvfz gcc472.tgz                # This creates the subdirectory gcc472 containing the gcc installation.
     $cd gpg-imp                         # This contains the source of the GPG-based points-to analysis.
