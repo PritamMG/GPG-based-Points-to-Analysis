@@ -33,3 +33,23 @@ The implementation supports multiple variants of points-to analysis. They can be
 Additional flags such as `PRINT_DATA`, `DATA_MEAS` and `TIME_MEAS` are used to print GPGs at every program point (for every GPB constructed), data measurements, and time measurements respectively
 
 The flag `BLOCKING` is set to 1 (by default) for GPG-based points-to analysis for points-to analysis. Options `HEURISTICS` and `PAR_FI` are no longer used.
+
+**Error Resolution: Dynamic Linking Issue in ‘make run’ Command**
+
+During execution of the 'make run' command in the sequence of steps needed to run the implementation, the build process may fail with an error message indicating that one or more (.h) header files are missing.
+Since gcc 4.7.2 is implemented as a dynamic plugin, we need to dynamically link the header files to correct source **once**. 
+
+To resolve the issue of missing header files, we need to take the following steps:
+    1. **Identify the Missing Header File:**
+        a. Check the error message to identify the missing header file. For example, example.h.
+    2. **Locate the Header File:**
+        a. Search your system or project directories to locate the missing header file using the find or locate command:
+            i. find / -name example.h
+            ii. locate example.h
+        There could be ambiguity while executing this command, as there could be multiple header files with same name. Figuring            out the correct location of required header file should be done through carefully examining the error message. 
+    3. Create a symbolic link:
+        a. Use the ln command to create a symbolic link in a directory that is in the system's library search path:
+            i. sudo ln -s /path/to/libexample.so /usr/lib/libexample.so
+            ii. Replace /path/to/libexample.so with the actual path to the library found in step 2.
+**Execute the make run command to check if the error is resolved.**
+This sequence of steps could be required multiple times for successfully executing the 'make run' command. Once a dynamic link for every misplaced header file is created, the command should execute successfully. 
